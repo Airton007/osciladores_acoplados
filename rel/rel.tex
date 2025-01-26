@@ -1,0 +1,122 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[left = 1.5cm, right = 1.5cm , top = 1.5cm, bottom = 1.5cm]{geometry}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{amsmath, amsfonts, amssymb,amsthm}
+\usepackage{float}
+\usepackage[pdftex]{graphicx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[portuguese]{babel}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{titling}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{subfigure}
+\usepackage[toc]{appendix}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{mathpazo}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,
+	linkcolor=blue,
+	urlcolor=blue,%black,
+	citecolor=blue,
+	pdfhighlight=/N
+}
+
+
+\title{\textbf{Osciladores acoplados}}
+\subtitle{Relatório técnico apresentado ao professor Wesley Cota\\ como parte das exigências da disciplina Fis 492}
+\author{Timóteo Fassoni e Airton Ferreira}
+
+
+\begin{document}
+\maketitle
+
+\section{Introdução}
+
+
+	Um sistema mecânico de grande interesse é o de Osciladores Acoplados. O exemplo mais simples consiste em dois pêndulos ligados por uma mola e sujeitos a oscilar no plano vertical definido pelas suas posições de equilíbrio. Seja $d$ a distância entre os pêndulos (igual ao comprimento natural da mola, sem distender), $k$ a constante elástica da mola e considera-se que ambos sejam idênticos (mesma massa $m$ e comprimento $l$ da corda). Nessas circunstâncias, as equações de movimento são dadas, definindo $\omega_0^2=g/l$, por:
+	\begin{equation}
+	\begin{cases}
+	m\ddot{x}_1 = - m\omega_0^2x_1 + k(x_2-x_1)\\
+	m\ddot{x}_2 = - m\omega_0^2x_2 + k(x_1-x_2).
+	\end{cases}
+	\end{equation}
+
+
+	Para resolver o sistema, utiliza-se as coordenadas normais, um conjunto $\left\lbrace q_j\right\rbrace$ de coordenadas linearmente independentes dadas por combinações lineares do conjunto $\left\lbrace x_j\right\rbrace$ e que cada uma tem a solução da forma
+	\begin{equation}
+	q_j = C_je^{\omega_jit}.
+	\end{equation}
+Para o caso dos pêndulos acoplados, uma vez que as coordenadas normais têm soluções harmônicas, faz-se $x_1 = A_1e^{\omega it}$ e $x_2 = A_2e^{\omega it}$, de modo que:
+	\begin{equation}
+	\begin{cases}
+	-\omega^2mA_1e^{\omega it} = - mA_1\omega_0^2e^{\omega it} + k (A_2-A_1)e^{\omega it}\\
+	-\omega^2mA_2e^{\omega it} = - mA_2\omega_0^2e^{\omega it} + k (A_1-A_2)e^{\omega it}
+	\end{cases}.
+	\end{equation}
+Isto é,
+	\begin{equation}
+	\begin{cases}
+		\omega^2mA_1 - mA_1\omega_0^2 + k (A_2-A_1) = 0 \\
+		\omega^2mA_2 - mA_2\omega_0^2 + k (A_1-A_2) = 0
+	\end{cases}
+	\implies
+	\begin{cases}
+		\left( m(\omega^2-\omega_0^2) - k\right) A_1 + k A_2 = 0  \\
+		kA_1 + \left( m(\omega^2-\omega_0^2) - k\right) A_2 = 0 
+	\end{cases},
+	\end{equation}
+que, escrevendo na notação matricial, fica:
+	\begin{equation}
+	\left[\begin{matrix}
+	\left( m(\omega^2-\omega_0^2) - k\right) & k \\
+	k & \left( m(\omega^2-\omega_0^2) - k\right)
+	\end{matrix}\right]
+	\left(\begin{matrix}
+	A_1\\
+	A_2
+	\end{matrix}\right)
+	= 0,
+	\end{equation}
+de modo que as soluções não triviais são dadas por
+	\begin{equation}
+	\left|\begin{matrix}
+	\left( m(\omega^2-\omega_0^2) - k\right) & k \\
+	k & \left( m(\omega^2-\omega_0^2) - k\right)
+	\end{matrix}\right|
+	= 0 \implies \omega_1^2 = \omega_0^2 \hspace{0.2cm}\text{ e }\hspace{0.2cm} \omega_2^2 = \omega_0^2+2k/m,
+	\end{equation}
+que são as frequências de oscilação das coordenadas normais. Os autovetores $(A_1,A_2)$ associados a elas são $(1,1)$ e $(1,-1)$, de modo que as coordenadas normais podem ser escritas por:
+	\begin{equation}
+	q_1 = \dfrac{1}{2}(x_1+x_2) \hspace{0.7cm}\text{e}\hspace{0.7cm} 	q_2 = \dfrac{1}{2}(x_1 - x_2).
+	\end{equation}
+
+	Ou seja, no problema desses dois pêndulos acoplados, o centro de massa do sistema ($q_1$) e a posição de um em relação ao outro ($q_2$) executam um movimento harmônico simples, cada um com uma frequência $\omega_1$ e $\omega_2$. As coordenadas naturais do sistema, $x_1$ e $x_2$, podem ser obtidas pela transformação linear $x_1=q_1+q_2$ e $x_2 = q_1-q_2$. 
+	
+\section{ de bibliografia}
+\lipsum
+
+
+\newpage
+\nocite{*}
+\bibliographystyle{unsrt}
+\bibliography{ref.bib}
+\addcontentsline{toc}{chapter}{Referências}
+\end{document}

@@ -55,17 +55,17 @@ program osc_acopladas_n
          z(N_pendulos+1:d) = 0.0_dp     ! Velocidades iniciais
          nome_arquivo = 'pend_acop_pos_iguais.dat'
 
+      elseif (i == 2) then
+         ! Condições iniciais: posições alternadas (opostas)
+         z(1:N_pendulos) = [((-1.0_dp)**j, j=1, N_pendulos)]
+         z(N_pendulos+1:d) = 0.0_dp
+         nome_arquivo = 'pend_acop_pos_opostas.dat'
+
       elseif (i == 3) then
          ! Condições iniciais: posições diferentes
          z(1:N_pendulos) = [(1.0_dp * j, j=1, N_pendulos)]
          z(N_pendulos+1:d) = 0.0_dp
          nome_arquivo = 'pend_acop_pos_diferentes.dat'
-      
-      elseif (i == 3) then
-         ! Condições iniciais: posições alternadas (opostas)
-         z(1:N_pendulos) = [((-1.0_dp)**j, j=1, N_pendulos)]
-         z(N_pendulos+1:d) = 0.0_dp
-         nome_arquivo = 'pend_acop_pos_opostas.dat'
       else
          print*, 'Opção inválida.'
          stop
